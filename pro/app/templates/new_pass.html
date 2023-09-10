@@ -1,0 +1,57 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block main-content %}
+
+  <!-- Navigation -->
+  
+  <section class="main-container col1-layout">
+    <div class="main container">
+      <div class="account-login">
+        <div class="page-title">
+          <h2>Reset Password</h2>
+        </div>
+        <fieldset>
+          {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+          </ul>
+         {% endif %}
+            <div class="content">
+             
+              <form method="POST">
+                {% csrf_token %}
+              <ul class="form-list">
+               
+                <li>
+                  <label for="pass">New Password <span class="required">*</span></label>
+                  <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="pass">
+                </li>
+                <li>
+                  <label for="pass1">Retype Password <span class="required">*</span></label>
+                  <input type="password" title="Password" id="pass1" class="input-text required-entry validate-password" name="pass1">
+                </li>
+              </ul>
+             
+              <div class="buttons-set">
+                <button id="send2" name="send" type="submit" class="button login"><span>Change</span></button>
+                
+               
+              </form>
+            </div>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </section>
+  
+  
+{% endblock main-content %}
